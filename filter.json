@@ -1,0 +1,1205 @@
+[
+  {
+    "filterName": "Hot",
+    "description": "热门"
+  },
+  {
+    "filterName": "A",
+    "description": "工商信息",
+    "isNew": true,
+    "sub": [
+      {
+        "filterName": "entName",
+        "description": "企业名称",
+        "actionCode": 2,
+        "actionInputType": 2,
+        "keywordInputType": 10,
+        "isHot": true,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "desc",
+        "description": "企业简介",
+        "actionCode": 2,
+        "actionInputType": 2,
+        "keywordInputType": 10,
+        "isHot": true,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "corpStatusString",
+        "description": "营业状态",
+        "actionCode": 2,
+        "actionInputType": 2,
+        "keywordInputType": 222,
+        "filterOption": "operStatus",
+        "isNew": true,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "industryCategory",
+        "description": "所属行业",
+        "actionCode": 2,
+        "actionInputType": 2,
+        "keywordInputType": 7,
+        "isNew": true,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "regAddress",
+        "description": "注册地址",
+        "actionCode": 3,
+        "actionInputType": 2,
+        "keywordInputType": 6,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "opScope",
+        "description": "经营范围",
+        "actionCode": 2,
+        "actionInputType": 2,
+        "keywordInputType": 10,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "wechatCount",
+        "description": "微信公众号数量",
+        "actionCode": 4,
+        "actionInputType": 0,
+        "keywordInputType": 4,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "dom",
+        "description": "详细地址",
+        "actionCode": 2,
+        "actionInputType": 2,
+        "keywordInputType": 10,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "regCaption",
+        "description": "注册资本",
+        "actionCode": 4,
+        "actionInputType": 0,
+        "keywordInputType": 4,
+        "unit": "万元人民币",
+        "esIndexId": 1
+      },
+      {
+        "filterName": "estDate",
+        "description": "成立时间",
+        "actionCode": 4,
+        "actionInputType": 0,
+        "keywordInputType": 3,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "agentType",
+        "description": "企业类型",
+        "actionCode": 3,
+        "actionInputType": 2,
+        "keywordInputType": 222,
+        "filterOption": "agentType",
+        "esIndexId": 1
+      },
+      {
+        "filterName": "noAnnualReport",
+        "description": "有无企业年报",
+        "actionCode": 1,
+        "actionInputType": 2,
+        "keywordInputType": 0,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "branchCount",
+        "description": "分支机构",
+        "actionCode": 4,
+        "actionInputType": 0,
+        "keywordInputType": 4,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "licCount",
+        "description": "行政许可数量",
+        "actionCode": 4,
+        "actionInputType": 0,
+        "keywordInputType": 4,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "noLicence",
+        "description": "有无行政许可",
+        "actionCode": 1,
+        "actionInputType": 2,
+        "keywordInputType": 0,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "licAnth",
+        "description": "许可机关",
+        "actionCode": 2,
+        "actionInputType": 2,
+        "keywordInputType": 10,
+        "esIndexId": 14
+      },
+      {
+        "filterName": "licNameCN",
+        "description": "许可内容",
+        "actionCode": 2,
+        "actionInputType": 2,
+        "keywordInputType": 10,
+        "esIndexId": 14
+      },
+      {
+        "filterName": "noInvest",
+        "description": "有无对外投资",
+        "actionCode": 1,
+        "actionInputType": 2,
+        "keywordInputType": 0,
+        "esIndexId": 1
+      }
+    ]
+  },
+  {
+    "filterName": "B",
+    "description": "联系方式",
+    "sub": [
+      {
+        "filterName": "noMobile",
+        "description": "有无手机",
+        "actionCode": 1,
+        "actionInputType": 2,
+        "keywordInputType": 0,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "noTel",
+        "description": "有无固话",
+        "actionCode": 1,
+        "actionInputType": 2,
+        "keywordInputType": 0,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "noEmail",
+        "description": "有无邮箱",
+        "actionCode": 1,
+        "actionInputType": 2,
+        "keywordInputType": 0,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "mobileSrc",
+        "description": "手机号渠道",
+        "actionCode": 2,
+        "actionInputType": 2,
+        "keywordInputType": 5,
+        "filterOption": "contactSource",
+        "esIndexId": 2
+      },
+      {
+        "filterName": "telSrc",
+        "description": "固话渠道",
+        "actionCode": 2,
+        "actionInputType": 2,
+        "keywordInputType": 5,
+        "filterOption": "contactSource",
+        "esIndexId": 2
+      },
+      {
+        "filterName": "emailSrc",
+        "description": "邮箱渠道",
+        "actionCode": 2,
+        "actionInputType": 2,
+        "keywordInputType": 5,
+        "filterOption": "contactSource",
+        "esIndexId": 2
+      },
+      {
+        "filterName": "qqSrc",
+        "description": "QQ渠道",
+        "actionCode": 2,
+        "actionInputType": 2,
+        "keywordInputType": 5,
+        "filterOption": "contactSource",
+        "esIndexId": 2
+      },
+      {
+        "filterName": "wxSrc",
+        "description": "微信渠道",
+        "actionCode": 2,
+        "actionInputType": 2,
+        "keywordInputType": 5,
+        "filterOption": "contactSource",
+        "esIndexId": 2
+      }
+    ]
+  },
+  {
+    "filterName": "C",
+    "description": "招聘信息",
+    "sub": [
+      {
+        "filterName": "recruitTitle",
+        "description": "岗位名称",
+        "actionCode": 2,
+        "actionInputType": 2,
+        "keywordInputType": 10,
+        "esIndexId": 3
+      },
+      {
+        "filterName": "jobDesc",
+        "description": "岗位描述",
+        "actionCode": 2,
+        "actionInputType": 2,
+        "keywordInputType": 10,
+        "esIndexId": 3
+      },
+      {
+        "filterName": "salary",
+        "description": "薪资范围",
+        "actionCode": 4,
+        "actionInputType": 0,
+        "keywordInputType": 4,
+        "esIndexId": 3,
+        "unit": "元人民币/月"
+      },
+      {
+        "filterName": "salaryAvg",
+        "description": "岗位平均薪酬",
+        "actionCode": 4,
+        "actionInputType": 0,
+        "keywordInputType": 4,
+        "unit": "元人民币/月",
+        "esIndexId": 1
+      },
+      {
+        "filterName": "address",
+        "description": "招聘详细地址",
+        "actionCode": 2,
+        "actionInputType": 2,
+        "keywordInputType": 10,
+        "esIndexId": 3
+      },
+      {
+        "filterName": "postCount",
+        "description": "当前招聘岗位数",
+        "actionCode": 4,
+        "actionInputType": 0,
+        "keywordInputType": 4,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "recruitCount",
+        "description": "当前招聘人数",
+        "actionCode": 4,
+        "actionInputType": 0,
+        "keywordInputType": 4,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "lTMPostCount",
+        "description": "近三个月招聘岗位数",
+        "actionCode": 4,
+        "actionInputType": 0,
+        "keywordInputType": 4,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "lTMJobCount",
+        "description": "近三个月招聘总人数",
+        "actionCode": 4,
+        "actionInputType": 0,
+        "keywordInputType": 4,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "postUpdateTimeAvg",
+        "description": "岗位平均更新频率",
+        "actionCode": 4,
+        "actionInputType": 0,
+        "keywordInputType": 210,
+        "esIndexId": 1,
+        "filterOption": "lte_gte_rangeDay"
+      },
+      {
+        "filterName": "postType",
+        "description": "岗位类型",
+        "actionCode": 2,
+        "actionInputType": 2,
+        "keywordInputType": 222,
+        "filterOption": "recruitingTypes",
+        "esIndexId": 3
+      },
+      {
+        "filterName": "recruitTitleLM",
+        "description": "最近1个月招聘岗位名称",
+        "actionCode": 2,
+        "actionInputType": 2,
+        "keywordInputType": 10,
+        "esIndexId": 1
+      }
+    ]
+  },
+  {
+    "filterName": "D",
+    "description": "官网信息",
+    "sub": [
+      {
+        "filterName": "domainKeyword",
+        "description": "关键词",
+        "actionCode": 2,
+        "actionInputType": 2,
+        "keywordInputType": 10,
+        "esIndexId": 4
+      },
+      {
+        "filterName": "domainDesc",
+        "description": "官网描述",
+        "actionCode": 2,
+        "actionInputType": 2,
+        "keywordInputType": 10,
+        "esIndexId": 4
+      },
+      {
+        "filterName": "noDomain",
+        "description": "有无官网",
+        "actionCode": 1,
+        "actionInputType": 2,
+        "keywordInputType": 0,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "noICP",
+        "description": "有无ICP备案",
+        "actionCode": 1,
+        "actionInputType": 2,
+        "keywordInputType": 0,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "iCPCount",
+        "description": "ICP备案数量",
+        "actionCode": 4,
+        "actionInputType": 0,
+        "keywordInputType": 4,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "noOnlineService",
+        "description": "有无在线客服",
+        "actionCode": 1,
+        "actionInputType": 2,
+        "keywordInputType": 0,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "noHttps",
+        "description": "有无Https模块",
+        "actionCode": 1,
+        "actionInputType": 2,
+        "keywordInputType": 0,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "indexLayout",
+        "description": "首页布局",
+        "actionCode": 2,
+        "actionInputType": 2,
+        "keywordInputType": 222,
+        "filterOption": "homepageLayout",
+        "esIndexId": 4
+      },
+      {
+        "filterName": "domainTitle",
+        "description": "网站标题",
+        "actionCode": 2,
+        "actionInputType": 2,
+        "keywordInputType": 10,
+        "esIndexId": 4
+      },
+      {
+        "filterName": "respTimeAvg",
+        "description": "平均访问速度",
+        "actionCode": 4,
+        "actionInputType": 0,
+        "keywordInputType": 4,
+        "unit": "秒",
+        "esIndexId": 1
+      },
+      {
+        "filterName": "ipAddress",
+        "description": "IP物理位置",
+        "actionCode": 2,
+        "actionInputType": 2,
+        "keywordInputType": 222,
+        "filterOption": "ipAddress",
+        "esIndexId": 4
+      },
+      {
+        "filterName": "soWeight",
+        "description": "360权重",
+        "actionCode": 4,
+        "actionInputType": 0,
+        "keywordInputType": 4,
+        "esIndexId": 4
+      },
+      {
+        "filterName": "baiduIndex",
+        "description": "百度收录量",
+        "actionCode": 4,
+        "actionInputType": 0,
+        "keywordInputType": 4,
+        "esIndexId": 4
+      },
+      {
+        "filterName": "soIndex",
+        "description": "360收录量",
+        "actionCode": 4,
+        "actionInputType": 0,
+        "keywordInputType": 4,
+        "esIndexId": 4
+      },
+      {
+        "filterName": "domainAgeCount",
+        "description": "域名年龄",
+        "actionCode": 4,
+        "actionInputType": 0,
+        "keywordInputType": 4,
+        "esIndexId": 1
+      }
+    ]
+  },
+  {
+    "filterName": "E",
+    "description": "经营状况",
+    "sub": [
+      {
+        "filterName": "financingCount",
+        "description": "融资次数",
+        "actionCode": 4,
+        "actionInputType": 0,
+        "keywordInputType": 4,
+        "unit": "次",
+        "esIndexId": 1
+      },
+      {
+        "filterName": "stag",
+        "description": "当前融资轮次",
+        "actionCode": 2,
+        "actionInputType": 2,
+        "keywordInputType": 222,
+        "filterOption": "financingRound",
+        "esIndexId": 15
+      },
+      {
+        "filterName": "isHighTech",
+        "description": "是否高新企业",
+        "actionCode": 5,
+        "actionInputType": 2,
+        "keywordInputType": 0,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "isTop500",
+        "description": "是否500强企业",
+        "actionCode": 5,
+        "actionInputType": 2,
+        "keywordInputType": 0,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "isUnicorn",
+        "description": "是否独角兽企业",
+        "actionCode": 5,
+        "actionInputType": 2,
+        "keywordInputType": 0,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "isGazelle",
+        "description": "是否瞪羚企业",
+        "actionCode": 5,
+        "actionInputType": 2,
+        "keywordInputType": 0,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "isStock",
+        "description": "是否上市企业",
+        "actionCode": 5,
+        "actionInputType": 2,
+        "keywordInputType": 0,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "isTaxARate",
+        "description": "是否A级纳税人",
+        "actionCode": 5,
+        "actionInputType": 2,
+        "keywordInputType": 0,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "taxAYear",
+        "description": "A级纳税人评价年份",
+        "actionCode": 4,
+        "actionInputType": 0,
+        "keywordInputType": 3,
+        "esIndexId": 5
+      },
+      {
+        "filterName": "noBidding",
+        "description": "有无招投标",
+        "actionCode": 1,
+        "actionInputType": 2,
+        "keywordInputType": 0,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "pName",
+        "description": "招投标项目标题",
+        "actionCode": 2,
+        "actionInputType": 2,
+        "keywordInputType": 10,
+        "esIndexId": 23
+      },
+      {
+        "filterName": "agentName",
+        "description": "招标代理机构",
+        "actionCode": 2,
+        "actionInputType": 2,
+        "keywordInputType": 10,
+        "esIndexId": 23
+      },
+      {
+        "filterName": "noTradeCredit",
+        "description": "有无进出口信用",
+        "actionCode": 1,
+        "actionInputType": 2,
+        "keywordInputType": 0,
+        "esIndexId": 1
+      }
+    ]
+  },
+  {
+    "filterName": "F",
+    "description": "资质证书",
+    "sub": [
+      {
+        "filterName": "noCert",
+        "description": "有无证书",
+        "actionCode": 1,
+        "actionInputType": 2,
+        "keywordInputType": 0,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "certCount",
+        "description": "证书数量",
+        "actionCode": 4,
+        "actionInputType": 0,
+        "keywordInputType": 4,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "certType",
+        "description": "证书名称",
+        "actionCode": 3,
+        "actionInputType": 2,
+        "keywordInputType": 5,
+        "filterOption": "certTitle",
+        "esIndexId": 6
+      },
+      {
+        "filterName": "pubDate",
+        "description": "初次获证日期",
+        "actionCode": 4,
+        "actionInputType": 0,
+        "keywordInputType": 3,
+        "esIndexId": 6
+      },
+      {
+        "filterName": "expireDate",
+        "description": "证书有效截止日期",
+        "actionCode": 4,
+        "actionInputType": 0,
+        "keywordInputType": 3,
+        "esIndexId": 6
+      },
+      {
+        "filterName": "certTypeLTM",
+        "description": "最近3个月内截止证书类别",
+        "actionCode": 2,
+        "actionInputType": 2,
+        "keywordInputType": 222,
+        "filterOption": "certTypeList",
+        "esIndexId": 1
+      },
+      {
+        "filterName": "certTypeLSM",
+        "description": "最近6个月内截止证书类别",
+        "actionCode": 2,
+        "actionInputType": 2,
+        "keywordInputType": 222,
+        "filterOption": "certTypeList",
+        "esIndexId": 1
+      },
+      {
+        "filterName": "certThisYearCount",
+        "description": "本年度获证数量",
+        "actionCode": 4,
+        "actionInputType": 0,
+        "keywordInputType": 4,
+        "esIndexId": 1
+      }
+    ]
+  },
+  {
+    "filterName": "G",
+    "description": "媒体类型",
+    "sub": [
+      {
+        "filterName": "noWeMedia",
+        "description": "有无自媒体",
+        "actionCode": 1,
+        "actionInputType": 2,
+        "keywordInputType": 0,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "mediaTitle",
+        "description": "自媒体名称",
+        "actionCode": 2,
+        "actionInputType": 2,
+        "keywordInputType": 10,
+        "esIndexId": 17
+      },
+      {
+        "filterName": "noNews",
+        "description": "有无新闻",
+        "actionCode": 1,
+        "actionInputType": 2,
+        "keywordInputType": 0,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "lMNewsCount",
+        "description": "近1月新闻数量",
+        "actionCode": 4,
+        "actionInputType": 0,
+        "keywordInputType": 4,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "noWechat",
+        "description": "有无微信公众号",
+        "actionCode": 1,
+        "actionInputType": 2,
+        "keywordInputType": 0,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "newsTitles",
+        "description": "新闻标题",
+        "actionCode": 2,
+        "actionInputType": 2,
+        "keywordInputType": 10,
+        "esIndexId": 7
+      }
+    ]
+  },
+  {
+    "filterName": "H",
+    "description": "推广信息",
+    "sub": [
+      {
+        "filterName": "noPrmt",
+        "description": "有无推广",
+        "actionCode": 1,
+        "actionInputType": 2,
+        "keywordInputType": 0,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "prmtKeyCount",
+        "description": "推广关键词数",
+        "actionCode": 4,
+        "actionInputType": 0,
+        "keywordInputType": 4,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "prmtCompCount",
+        "description": "推广竞品数",
+        "actionCode": 4,
+        "actionInputType": 0,
+        "keywordInputType": 4,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "prmtLinksCount",
+        "description": "推广链接数",
+        "actionCode": 4,
+        "actionInputType": 0,
+        "keywordInputType": 4,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "prmtKeyLM",
+        "description": "最近1个月推广关键词",
+        "actionCode": 2,
+        "actionInputType": 2,
+        "keywordInputType": 10,
+        "esIndexId": 1
+      }
+    ]
+  },
+  {
+    "filterName": "I",
+    "description": "产品信息",
+    "sub": [
+      {
+        "filterName": "appNames",
+        "description": "应用名称",
+        "actionCode": 2,
+        "actionInputType": 2,
+        "keywordInputType": 10,
+        "esIndexId": 10
+      },
+      {
+        "filterName": "summary",
+        "description": "应用描述",
+        "actionCode": 2,
+        "actionInputType": 2,
+        "keywordInputType": 10,
+        "esIndexId": 10
+      },
+      {
+        "filterName": "appCategory",
+        "description": "应用分类",
+        "actionCode": 3,
+        "actionInputType": 2,
+        "keywordInputType": 222,
+        "filterOption": "appClass",
+        "esIndexId": 24
+      },
+      {
+        "filterName": "appStores",
+        "description": "应用上架平台",
+        "actionCode": 3,
+        "actionInputType": 2,
+        "keywordInputType": 222,
+        "filterOption": "appStore",
+        "esIndexId": 24
+      },
+      {
+        "filterName": "appCount",
+        "description": "应用数量",
+        "actionCode": 4,
+        "actionInputType": 0,
+        "keywordInputType": 4,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "appDownloadCount",
+        "description": "应用总下载量",
+        "actionCode": 4,
+        "actionInputType": 0,
+        "keywordInputType": 4,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "noApp",
+        "description": "有无应用",
+        "actionCode": 1,
+        "actionInputType": 2,
+        "keywordInputType": 0,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "appScoreAvg",
+        "description": "应用平均分",
+        "actionCode": 4,
+        "actionInputType": 0,
+        "keywordInputType": 4,
+        "unit": "分",
+        "esIndexId": 1
+      },
+      {
+        "filterName": "appUpgradeTime",
+        "description": "最近发布时间",
+        "actionCode": 4,
+        "actionInputType": 0,
+        "keywordInputType": 3,
+        "esIndexId": 24
+      },
+      {
+        "filterName": "ecShopCount",
+        "description": "电商店铺数量",
+        "actionCode": 4,
+        "actionInputType": 0,
+        "keywordInputType": 4,
+        "unit": "个",
+        "esIndexId": 1
+      },
+      {
+        "filterName": "itemCategories",
+        "description": "电商商品分类",
+        "actionCode": 2,
+        "actionInputType": 2,
+        "keywordInputType": 10,
+        "esIndexId": 9
+      },
+      {
+        "filterName": "shopName",
+        "description": "电商店铺名称",
+        "actionCode": 2,
+        "actionInputType": 2,
+        "keywordInputType": 10,
+        "esIndexId": 9
+      },
+      {
+        "filterName": "shopRate",
+        "description": "电商店铺平均分",
+        "actionCode": 4,
+        "actionInputType": 0,
+        "keywordInputType": 4,
+        "esIndexId": 9
+      },
+      {
+        "filterName": "itemCount",
+        "description": "电商店铺商品总数",
+        "actionCode": 4,
+        "actionInputType": 0,
+        "keywordInputType": 4,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "noGoods",
+        "description": "有无商品",
+        "actionCode": 1,
+        "actionInputType": 2,
+        "keywordInputType": 0,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "goodsCount",
+        "description": "商品数量",
+        "actionCode": 4,
+        "actionInputType": 0,
+        "keywordInputType": 4,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "goodsName",
+        "description": "商品名称",
+        "actionCode": 2,
+        "actionInputType": 2,
+        "keywordInputType": 10,
+        "esIndexId": 18
+      },
+      {
+        "filterName": "noBrand",
+        "description": "有无品牌信息",
+        "actionCode": 1,
+        "actionInputType": 2,
+        "keywordInputType": 0,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "brandCount",
+        "description": "品牌数量",
+        "actionCode": 4,
+        "actionInputType": 0,
+        "keywordInputType": 4,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "brandName",
+        "description": "品牌名称",
+        "actionCode": 2,
+        "actionInputType": 2,
+        "keywordInputType": 10,
+        "esIndexId": 11
+      }
+    ]
+  },
+  {
+    "filterName": "J",
+    "description": "风险信息",
+    "sub": [
+      {
+        "filterName": "noAbnomalyOpt",
+        "description": "有无经营异常",
+        "actionCode": 1,
+        "actionInputType": 2,
+        "keywordInputType": 0,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "isAbnormally",
+        "description": "当前是否被列入经营异常",
+        "actionCode": 5,
+        "actionInputType": 2,
+        "keywordInputType": 0,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "abnormalCount",
+        "description": "经营异常数量",
+        "actionCode": 4,
+        "actionInputType": 0,
+        "keywordInputType": 4,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "speCauseCN",
+        "description": "列入经营异常原因",
+        "actionCode": 2,
+        "actionInputType": 2,
+        "keywordInputType": 10,
+        "esIndexId": 12
+      },
+      {
+        "filterName": "abntime",
+        "description": "最近经营异常列入日期",
+        "actionCode": 4,
+        "actionInputType": 0,
+        "keywordInputType": 3,
+        "esIndexId": 12
+      },
+      {
+        "filterName": "remDate",
+        "description": "最近经营异常移出日期",
+        "actionCode": 4,
+        "actionInputType": 0,
+        "keywordInputType": 3,
+        "esIndexId": 12
+      },
+      {
+        "filterName": "noPunishment",
+        "description": "有无行政处罚",
+        "actionCode": 1,
+        "actionInputType": 2,
+        "keywordInputType": 0,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "punishmentCount",
+        "description": "行政处罚数量",
+        "actionCode": 4,
+        "actionInputType": 0,
+        "keywordInputType": 4,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "issueDate",
+        "description": "处罚决定日期",
+        "actionCode": 4,
+        "actionInputType": 0,
+        "keywordInputType": 3,
+        "esIndexId": 25
+      },
+      {
+        "filterName": "illegalType",
+        "description": "违法行为类型",
+        "actionCode": 2,
+        "actionInputType": 2,
+        "keywordInputType": 10,
+        "esIndexId": 25
+      },
+      {
+        "filterName": "noEquityPledge",
+        "description": "有无股权出资",
+        "actionCode": 1,
+        "actionInputType": 2,
+        "keywordInputType": 0,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "noIllegal",
+        "description": "有无严重违法",
+        "actionCode": 1,
+        "actionInputType": 2,
+        "keywordInputType": 0,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "noMortgage",
+        "description": "有无动产抵押",
+        "actionCode": 1,
+        "actionInputType": 2,
+        "keywordInputType": 0,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "noIPRPledge",
+        "description": "有无知识产权出资",
+        "actionCode": 1,
+        "actionInputType": 2,
+        "keywordInputType": 0,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "noJudicialAid",
+        "description": "有无司法协助",
+        "actionCode": 1,
+        "actionInputType": 2,
+        "keywordInputType": 0,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "noJudicialPaper",
+        "description": "有无裁判文书",
+        "actionCode": 1,
+        "actionInputType": 2,
+        "keywordInputType": 0,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "caseDesc",
+        "description": "法律案件事由",
+        "actionCode": 2,
+        "actionInputType": 2,
+        "keywordInputType": 10,
+        "esIndexId": 19
+      },
+      {
+        "filterName": "noCourtNotice",
+        "description": "有无法院公告",
+        "actionCode": 1,
+        "actionInputType": 2,
+        "keywordInputType": 0,
+        "esIndexId": 1
+      }
+    ]
+  },
+  {
+    "filterName": "K",
+    "description": "知识产权",
+    "sub": [
+      {
+        "filterName": "noTrademark",
+        "description": "有无商标",
+        "actionCode": 1,
+        "actionInputType": 2,
+        "keywordInputType": 0,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "tmValidCount",
+        "description": "有效状态商标数量",
+        "actionCode": 4,
+        "actionInputType": 0,
+        "keywordInputType": 4,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "tmInvalidCount",
+        "description": "无效状态商标数量",
+        "actionCode": 4,
+        "actionInputType": 0,
+        "keywordInputType": 4,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "tmName",
+        "description": "商标名称",
+        "actionCode": 2,
+        "actionInputType": 2,
+        "keywordInputType": 10,
+        "esIndexId": 20
+      },
+      {
+        "filterName": "propertyEndDate",
+        "description": "商标专用权结束日期",
+        "actionCode": 4,
+        "actionInputType": 0,
+        "keywordInputType": 3,
+        "esIndexId": 20
+      },
+      {
+        "filterName": "noPatent",
+        "description": "有无专利",
+        "actionCode": 1,
+        "actionInputType": 2,
+        "keywordInputType": 0,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "patentCount",
+        "description": "专利数量",
+        "actionCode": 4,
+        "actionInputType": 0,
+        "keywordInputType": 4,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "patentName",
+        "description": "专利名称",
+        "actionCode": 2,
+        "actionInputType": 2,
+        "keywordInputType": 10,
+        "esIndexId": 13
+      },
+      {
+        "filterName": "lYPatentCount",
+        "description": "最近一年申请专利数量",
+        "actionCode": 4,
+        "actionInputType": 0,
+        "keywordInputType": 4,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "lYPatentPublicCount",
+        "description": "最近一年公开专利数量",
+        "actionCode": 4,
+        "actionInputType": 0,
+        "keywordInputType": 4,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "noSr",
+        "description": "有无软著",
+        "actionCode": 1,
+        "actionInputType": 2,
+        "keywordInputType": 0,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "srCount",
+        "description": "软著数量",
+        "actionCode": 4,
+        "actionInputType": 0,
+        "keywordInputType": 4,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "noCr",
+        "description": "有无作品著作权",
+        "actionCode": 1,
+        "actionInputType": 2,
+        "keywordInputType": 0,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "crCount",
+        "description": "作品著作权数量",
+        "actionCode": 4,
+        "actionInputType": 0,
+        "keywordInputType": 4,
+        "esIndexId": 1
+      },
+      {
+        "filterName": "crName",
+        "description": "作品名称",
+        "actionCode": 2,
+        "actionInputType": 2,
+        "keywordInputType": 10,
+        "esIndexId": 26
+      }
+    ]
+  }
+]
