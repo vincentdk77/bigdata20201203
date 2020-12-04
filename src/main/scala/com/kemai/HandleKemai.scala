@@ -37,7 +37,7 @@ object HandleKemai {
 		//		}
 
 		// 运行环境
-		val conf = new SparkConf().setAppName(s"${this.getClass.getSimpleName}")
+		val conf = new SparkConf().setMaster("local[*]").setAppName(s"${this.getClass.getSimpleName}")
 		val sc = new SparkContext(conf)
 
 		// 广播dirver端变量
@@ -46,45 +46,84 @@ object HandleKemai {
 		// 读取数据
 		//		val fileList = Array("hdfs://jtb/transform/2020/11/03/*", "hdfs://jtb/transform/2020/11/16/*")
 
-		val path_prefix = "hdfs://jtb/transform/"
-		val fileList = Array(
-			path_prefix + "ent/*", // ES索引，统计字段
-			path_prefix + "ent_a_taxpayer/*", // ES索引，统计字段
-			path_prefix + "ent_abnormal_opt/*", // ES索引
-			path_prefix + "ent_annual_report/*", // 统计字段
-			path_prefix + "ent_apps/*", // ES索引，统计字段
-			path_prefix + "ent_bids/*", // ES索引
-			path_prefix + "ent_brand/*", // ES索引
-			path_prefix + "ent_cert/*", // ES索引，统计字段
-			path_prefix + "ent_contacts/*", // ES索引，统计字段
-			path_prefix + "ent_copyrights/*", // ES索引
-			path_prefix + "ent_court_notice/*", // 统计字段
-			path_prefix + "ent_court_operator/*", // ES索引
-			path_prefix + "ent_court_paper/*", // 统计字段
-			path_prefix + "ent_dishonesty_operator/*", //
-			path_prefix + "ent_ecommerce/*", // ES索引，统计字段
-			path_prefix + "ent_equity_pledged/*", // 统计字段
-			path_prefix + "ent_funding_event/*", // ES索引
-			path_prefix + "ent_goods/*", // ES索引
-			path_prefix + "ent_growingup/*", // 统计字段
-			path_prefix + "ent_invest_company/*", // 统计字段
-			path_prefix + "ent_licence/*", // ES索引，统计字段
-			path_prefix + "ent_listed/*", // 统计字段
-			path_prefix + "ent_new_media/*", // ES索引，统计字段
-			path_prefix + "ent_news/*", // ES索引，统计字段
-			path_prefix + "ent_patent/*", // ES索引，统计字段
-			path_prefix + "ent_punishment/*", // ES索引，统计字段
-			path_prefix + "ent_recruit/*", // ES索引，统计字段
-			path_prefix + "ent_software/*", // ES索引，统计字段
-			path_prefix + "ent_top500/*", // 统计字段
-			path_prefix + "ent_trademark/*", // ES索引，统计字段
-			path_prefix + "ent_website/*", // ES索引，统计字段
+//		val path_prefix = "hdfs://jtb/transform/"
+//		val fileList = Array(
+//			path_prefix + "ent/*", // ES索引，统计字段
+//			path_prefix + "ent_a_taxpayer/*", // ES索引，统计字段
+//			path_prefix + "ent_abnormal_opt/*", // ES索引
+//			path_prefix + "ent_annual_report/*", // 统计字段
+//			path_prefix + "ent_apps/*", // ES索引，统计字段
+//			path_prefix + "ent_bids/*", // ES索引
+//			path_prefix + "ent_brand/*", // ES索引
+//			path_prefix + "ent_cert/*", // ES索引，统计字段
+//			path_prefix + "ent_contacts/*", // ES索引，统计字段
+//			path_prefix + "ent_copyrights/*", // ES索引
+//			path_prefix + "ent_court_notice/*", // 统计字段
+//			path_prefix + "ent_court_operator/*", // ES索引
+//			path_prefix + "ent_court_paper/*", // 统计字段
+//			path_prefix + "ent_dishonesty_operator/*", //
+//			path_prefix + "ent_ecommerce/*", // ES索引，统计字段
+//			path_prefix + "ent_equity_pledged/*", // 统计字段
+//			path_prefix + "ent_funding_event/*", // ES索引
+//			path_prefix + "ent_goods/*", // ES索引
+//			path_prefix + "ent_growingup/*", // 统计字段
+//			path_prefix + "ent_invest_company/*", // 统计字段
+//			path_prefix + "ent_licence/*", // ES索引，统计字段
+//			path_prefix + "ent_listed/*", // 统计字段
+//			path_prefix + "ent_new_media/*", // ES索引，统计字段
+//			path_prefix + "ent_news/*", // ES索引，统计字段
+//			path_prefix + "ent_patent/*", // ES索引，统计字段
+//			path_prefix + "ent_punishment/*", // ES索引，统计字段
+//			path_prefix + "ent_recruit/*", // ES索引，统计字段
+//			path_prefix + "ent_software/*", // ES索引，统计字段
+//			path_prefix + "ent_top500/*", // 统计字段
+//			path_prefix + "ent_trademark/*", // ES索引，统计字段
+//			path_prefix + "ent_website/*", // ES索引，统计字段
+//
+//			path_prefix + "ent_maimai/*", //
+//			path_prefix + "ent_zhaodao/*" //
+//		)
+//		val inputRDD: RDD[String] = sc.textFile(fileList.mkString(","))
+		val path_prefix = "D:\\JavaRelation\\工作\\安徽创瑞\\mongoDatas\\transform\\"
+		val fileList = Array(path_prefix + "ent\\*",path_prefix + "ent_top500\\*")
+		val path = fileList.mkString(",")
+		println(path)
+		val inputRDD: RDD[String] = sc.textFile(path)
+//		val inputRDD: RDD[String] = sc.textFile("D:\\JavaRelation\\工作\\安徽创瑞\\mongoDatas\\transform\\ent\\2020-11-21\\*")
+//		inputRDD.collect().foreach(println(_))
 
-			path_prefix + "ent_maimai/*", //
-			path_prefix + "ent_zhaodao/*" //
-		)
+//		ent|{"_id":{"$oid":"5f856f0f8034b3c2d705f647"},"uniscId":"91211103MA10E6140W","entTypeCN":"有限责任公司（自然人投资或控股）","entName":"盘锦信朋缘劳务有限公司","corpStatusString":"存续（在营、开业、在册）","estDate":"2020-06-04","apprDate":"2020-06-04","regOrgCn":"盘锦市兴隆台区市场监督管理局","regCapCurCN":"人民币","regCaption":100.0,"regCap":"壹佰万元整","legalName":"张艳阳","opFrom":"2020-06-04","opTo":"2040-06-03","regProv":"辽宁省","regCity":"盘锦市","regDistrict":"兴隆台区","opScope":"许可项目：建筑劳务分包，住宅室内装饰装修，各类工程建设活动，消防设施工程（依法须经批准的项目，经相关部门批准后方可开展经营活动，具体经营项目以审批结果为准） 一般项目：园林绿化工程施工，家政服务，五金产品零售，日用百货销售，家用电器销售，建筑装饰材料销售，机械设备租赁，消防器材销售（除依法须经批准的项目外，凭营业执照依法自主开展经营活动）","dom":"辽宁省盘锦市兴隆台区泰山路东、大众街北王家荒回迁楼3#11003","source":"爱企查公众号","spider":"aiqichaapp","q":91,"hidden":0,"createdAt":1602580239,"entId":"5f856f0f8034b3c2d705f647","desc":"盘锦信朋缘劳务有限公司成立于2020年6月4日，法定代表人为张艳阳，注册资本为100.0万元,统一社会信用代码为91211103MA10E6140W，企业地址位于辽宁省盘锦市兴隆台区泰山路东、大众街北王家荒回迁楼3#11003，经营范围包括：许可项目：建筑劳务分包，住宅室内装饰装修，各类工程建设活动，消防设施工程（依法须经批准的项目，经相关部门批准后方可开展经营活动，具体经营项目以审批结果为准） 一般项目：园林绿化工程施工，家政服务，五金产品零售，日用百货销售，家用电器销售，建筑装饰材料销售，机械设备租赁，消防器材销售（除依法须经批准的项目外，凭营业执照依法自主开展经营活动）。盘锦信朋缘劳务有限公司目前的经营状态为存续（在营、开业、在册）。"}
 
-		val inputRDD: RDD[String] = sc.textFile(fileList.mkString(","))
+//		{
+//			"_id": {
+//				"$oid": "5f856f0f8034b3c2d705f647"
+//			},
+//			"uniscId": "91211103MA10E6140W",
+//			"entTypeCN": "有限责任公司（自然人投资或控股）",
+//			"entName": "盘锦信朋缘劳务有限公司",
+//			"corpStatusString": "存续（在营、开业、在册）",
+//			"estDate": "2020-06-04",
+//			"apprDate": "2020-06-04",
+//			"regOrgCn": "盘锦市兴隆台区市场监督管理局",
+//			"regCapCurCN": "人民币",
+//			"regCaption": 100.0,
+//			"regCap": "壹佰万元整",
+//			"legalName": "张艳阳",
+//			"opFrom": "2020-06-04",
+//			"opTo": "2040-06-03",
+//			"regProv": "辽宁省",
+//			"regCity": "盘锦市",
+//			"regDistrict": "兴隆台区",
+//			"opScope": "许可项目：建筑劳务分包，住宅室内装饰装修，各类工程建设活动，消防设施工程（依法须经批准的项目，经相关部门批准后方可开展经营活动，具体经营项目以审批结果为准） 一般项目：园林绿化工程施工，家政服务，五金产品零售，日用百货销售，家用电器销售，建筑装饰材料销售，机械设备租赁，消防器材销售（除依法须经批准的项目外，凭营业执照依法自主开展经营活动）",
+//			"dom": "辽宁省盘锦市兴隆台区泰山路东、大众街北王家荒回迁楼3#11003",
+//			"source": "爱企查公众号",
+//			"spider": "aiqichaapp",
+//			"q": 91,
+//			"hidden": 0,
+//			"createdAt": 1602580239,
+//			"entId": "5f856f0f8034b3c2d705f647",
+//			"desc": "盘锦信朋缘劳务有限公司成立于2020年6月4日，法定代表人为张艳阳，注册资本为100.0万元,统一社会信用代码为91211103MA10E6140W，企业地址位于辽宁省盘锦市兴隆台区泰山路东、大众街北王家荒回迁楼3#11003，经营范围包括：许可项目：建筑劳务分包，住宅室内装饰装修，各类工程建设活动，消防设施工程（依法须经批准的项目，经相关部门批准后方可开展经营活动，具体经营项目以审批结果为准） 一般项目：园林绿化工程施工，家政服务，五金产品零售，日用百货销售，家用电器销售，建筑装饰材料销售，机械设备租赁，消防器材销售（除依法须经批准的项目外，凭营业执照依法自主开展经营活动）。盘锦信朋缘劳务有限公司目前的经营状态为存续（在营、开业、在册）。"
+//		}
 
 		/**
 		 * 第一步：拼接
@@ -108,6 +147,41 @@ object HandleKemai {
 		})
 			.filter(t => !StringUtils.isEmpty(t._1))
 			.filter(t => !(t._2.getString("tableName").equals("ent_invest_company") && StringUtils.isEmpty(t._2.getString("isBrunch"))))
+
+//		tupleRDD.collect().foreach(println(_))
+//		(5f2bbf61479818904158dbe3,{"regNo":"350122100124694","estDate":"2020-03-23","opScope":"互联网零售；农业园艺服务；花卉种植；陶瓷、石材装饰材料零售；纺织品及针织品零售；服装零售；鞋帽零售；化妆品及卫生用品零售；钟表、眼镜零售；箱包零售；厨具卫具零售；日用杂品零售；自行车等代步设备零售；文具用品零售；体育用品及器材零售（不含弩）；户外装备零售；珠宝首饰零售；工艺美术品及收藏品零售（象牙及其制品除外）；乐器零售；玩具专门零售；日用家电零售；其他电子产品零售；五金零售；灯具零售；通信设备（不含无线发射装置及卫星地面接收设施）零售。（依法须经批准的项目，经相关部门批准后方可开展经营活动）","dom":"福建省福州市连江县凤城镇马祖东路3号碧水龙城7号楼1305单元","entName":"连江县陌上贸易有限公司","hidden":"0","regCaption":"100.0","source":"企信通","tableName":"ent","uniscId":"91350122MA33N5WU3D","legalName":"郑青霞","sourceUrl":"https://www.qixintong.cn/company/6273355659696b474c4d65","createdAt":"2020-08-06 16:29:21","regCap":"壹佰万元整","taxNo":"91350122MA33N5WU3D","entId":"5f2bbf61479818904158dbe3","regCapCurCN":"人民币","regProv":"福建省","apprDate":"2020-03-23","corpStatusString":"存续（在营、开业、在册）","regDistrict":"连江县","q":"91","checkedAt":"2020-09-28 15:54:01","regCity":"福州市","entTypeCN":"有限责任公司（自然人投资或控股）","_id":"{\"$oid\":\"5f2bbf61479818904158dbe3\"}","spider":"qixintong","desc":"连江县陌上贸易有限公司成立于2020年3月23日，法定代表人为郑青霞，注册资本为100.0万元,统一社会信用代码为91350122MA33N5WU3D，企业地址位于福建省福州市连江县凤城镇马祖东路3号碧水龙城7号楼1305单元，经营范围包括：互联网零售；农业园艺服务；花卉种植；陶瓷、石材装饰材料零售；纺织品及针织品零售；服装零售；鞋帽零售；化妆品及卫生用品零售；钟表、眼镜零售；箱包零售；厨具卫具零售；日用杂品零售；自行车等代步设备零售；文具用品零售；体育用品及器材零售（不含弩）；户外装备零售；珠宝首饰零售；工艺美术品及收藏品零售（象牙及其制品除外）；乐器零售；玩具专门零售；日用家电零售；其他电子产品零售；五金零售；灯具零售；通信设备（不含无线发射装置及卫星地面接收设施）零售。（依法须经批准的项目，经相关部门批准后方可开展经营活动）。连江县陌上贸易有限公司目前的经营状态为存续（在营、开业、在册）。"})
+
+//		{
+//			"regNo": "350122100124694",
+//			"estDate": "2020-03-23",
+//			"opScope": "互联网零售；农业园艺服务；花卉种植；陶瓷、石材装饰材料零售；纺织品及针织品零售；服装零售；鞋帽零售；化妆品及卫生用品零售；钟表、眼镜零售；箱包零售；厨具卫具零售；日用杂品零售；自行车等代步设备零售；文具用品零售；体育用品及器材零售（不含弩）；户外装备零售；珠宝首饰零售；工艺美术品及收藏品零售（象牙及其制品除外）；乐器零售；玩具专门零售；日用家电零售；其他电子产品零售；五金零售；灯具零售；通信设备（不含无线发射装置及卫星地面接收设施）零售。（依法须经批准的项目，经相关部门批准后方可开展经营活动）",
+//			"dom": "福建省福州市连江县凤城镇马祖东路3号碧水龙城7号楼1305单元",
+//			"entName": "连江县陌上贸易有限公司",
+//			"hidden": "0",
+//			"regCaption": "100.0",
+//			"source": "企信通",
+//			"tableName": "ent",
+//			"uniscId": "91350122MA33N5WU3D",
+//			"legalName": "郑青霞",
+//			"sourceUrl": "https://www.qixintong.cn/company/6273355659696b474c4d65",
+//			"createdAt": "2020-08-06 16:29:21",
+//			"regCap": "壹佰万元整",
+//			"taxNo": "91350122MA33N5WU3D",
+//			"entId": "5f2bbf61479818904158dbe3",
+//			"regCapCurCN": "人民币",
+//			"regProv": "福建省",
+//			"apprDate": "2020-03-23",
+//			"corpStatusString": "存续（在营、开业、在册）",
+//			"regDistrict": "连江县",
+//			"q": "91",
+//			"checkedAt": "2020-09-28 15:54:01",
+//			"regCity": "福州市",
+//			"entTypeCN": "有限责任公司（自然人投资或控股）",
+//			"_id": "{\"$oid\":\"5f2bbf61479818904158dbe3\"}",
+//			"spider": "qixintong",
+//			"desc": "连江县陌上贸易有限公司成立于2020年3月23日，法定代表人为郑青霞，注册资本为100.0万元,统一社会信用代码为91350122MA33N5WU3D，企业地址位于福建省福州市连江县凤城镇马祖东路3号碧水龙城7号楼1305单元，经营范围包括：互联网零售；农业园艺服务；花卉种植；陶瓷、石材装饰材料零售；纺织品及针织品零售；服装零售；鞋帽零售；化妆品及卫生用品零售；钟表、眼镜零售；箱包零售；厨具卫具零售；日用杂品零售；自行车等代步设备零售；文具用品零售；体育用品及器材零售（不含弩）；户外装备零售；珠宝首饰零售；工艺美术品及收藏品零售（象牙及其制品除外）；乐器零售；玩具专门零售；日用家电零售；其他电子产品零售；五金零售；灯具零售；通信设备（不含无线发射装置及卫星地面接收设施）零售。（依法须经批准的项目，经相关部门批准后方可开展经营活动）。连江县陌上贸易有限公司目前的经营状态为存续（在营、开业、在册）。"
+//		}
+
 
 		import scala.collection.JavaConversions._
 
@@ -146,6 +220,48 @@ object HandleKemai {
 			finalJson
 		}).filter(_.getJSONArray("ent") != null) // 如果其它表有数据，但该企业在Ent表没有数据，则过滤
 
+//		jsonRDD.collect().foreach(a=>println(a.toString))
+//		{"ent":[{"regNo":"371724600487014","estDate":"2014-08-11","opScope":"服装来料加工、销售","dom":"柳林镇前郝村","entName":"巨野县柳林镇万兴服饰","hidden":"0","historyName":",","source":"百度企业信用","tableName":"ent","legalName":"孔凡连","sourceUrl":"https://aiqicha.baidu.com/company_detail_12967111686228","createdAt":"2020-08-06 15:09:43","regOrgCn":"巨野县市场监督管理局","opFrom":"长期有效","updatedAt":"2020-11-22 04:05:39","entId":"5f2bacb7f4e099f30bc0f2bb","regCapCurCN":"人民币","regProv":"山东省","apprDate":"2014-08-11","corpStatusString":"存续（在营、开业、在册）","regDistrict":"巨野县","q":"91","checkedAt":"2020-09-28 15:52:59","regCity":"菏泽市","entTypeCN":"个体工商户","systemTags":"存续,制造业,纺织服装、服饰业,个体户,纺织服装、服饰业","location":"{\"coordinates\":[115.848434,35.225924],\"type\":\"Point\"}","_id":"{\"$oid\":\"5f2bacb7f4e099f30bc0f2bb\"}","category":"纺织服装、服饰业","spider":"xinbdb","desc":"巨野县柳林镇万兴服饰成立于2014年8月11日，法定代表人为孔凡连，企业地址位于柳林镇前郝村，经营范围包括：服装来料加工、销售。巨野县柳林镇万兴服饰目前的经营状态为存续（在营、开业、在册）。"}]}
+//
+//		{
+//			"ent": [
+//			{
+//				"regNo": "371724600487014",
+//				"estDate": "2014-08-11",
+//				"opScope": "服装来料加工、销售",
+//				"dom": "柳林镇前郝村",
+//				"entName": "巨野县柳林镇万兴服饰",
+//				"hidden": "0",
+//				"historyName": ",",
+//				"source": "百度企业信用",
+//				"tableName": "ent",
+//				"legalName": "孔凡连",
+//				"sourceUrl": "https://aiqicha.baidu.com/company_detail_12967111686228",
+//				"createdAt": "2020-08-06 15:09:43",
+//				"regOrgCn": "巨野县市场监督管理局",
+//				"opFrom": "长期有效",
+//				"updatedAt": "2020-11-22 04:05:39",
+//				"entId": "5f2bacb7f4e099f30bc0f2bb",
+//				"regCapCurCN": "人民币",
+//				"regProv": "山东省",
+//				"apprDate": "2014-08-11",
+//				"corpStatusString": "存续（在营、开业、在册）",
+//				"regDistrict": "巨野县",
+//				"q": "91",
+//				"checkedAt": "2020-09-28 15:52:59",
+//				"regCity": "菏泽市",
+//				"entTypeCN": "个体工商户",
+//				"systemTags": "存续,制造业,纺织服装、服饰业,个体户,纺织服装、服饰业",
+//				"location": "{\"coordinates\":[115.848434,35.225924],\"type\":\"Point\"}",
+//				"_id": "{\"$oid\":\"5f2bacb7f4e099f30bc0f2bb\"}",
+//				"category": "纺织服装、服饰业",
+//				"spider": "xinbdb",
+//				"desc": "巨野县柳林镇万兴服饰成立于2014年8月11日，法定代表人为孔凡连，企业地址位于柳林镇前郝村，经营范围包括：服装来料加工、销售。巨野县柳林镇万兴服饰目前的经营状态为存续（在营、开业、在册）。"
+//			}
+//			]
+//		}
+
+		//
 		/**
 		 * 第三步：数据清洗
 		 */

@@ -86,6 +86,7 @@ public class GetCategory {
 
         String[] lines = CategoryStr.s.toString().split("#");
         for (String s : lines) {
+            //{"id":"011","pId":"01","name":"谷物种植","parent":{"id":"01","pId":"A","name":"农业","parent":{"id":"A","pId":"0","name":"农、林、牧、渔业","parent":null}}}
             JSONObject category = JSONObject.parseObject(s);
             String id = category.getString("id");
             String pid = category.getString("pId");
