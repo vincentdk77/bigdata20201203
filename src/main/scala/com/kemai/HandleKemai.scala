@@ -87,7 +87,6 @@ object HandleKemai {
 		val path_prefix = "D:\\JavaRelation\\工作\\安徽创瑞\\mongoDatas\\transform\\"
 		val fileList = Array(path_prefix + "ent_top500\\*")
 		val path = fileList.mkString(",")
-		println(path)
 		val inputRDD: RDD[String] = sc.textFile(path)
 //		val inputRDD: RDD[String] = sc.textFile("D:\\JavaRelation\\工作\\安徽创瑞\\mongoDatas\\transform\\ent\\2020-11-21\\*")
 //		inputRDD.collect().foreach(println(_))
