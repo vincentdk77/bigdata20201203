@@ -8,10 +8,12 @@ import scala.collection.mutable.ArrayBuffer
 
 object LoadDataFromMongoToHdfs {
   def main(args: Array[String]): Unit = {
+    System.setProperty("HADOOP_USER_NAME","root")
     val spark = SparkSession.builder()
       .master("local[*]")
       .appName("LoadDataFromMongoToHdfs")
       .getOrCreate()
+    val sc = spark.sparkContext
 
     val collections = Array(
       "ent" // ES索引，统计字段
@@ -52,6 +54,8 @@ object LoadDataFromMongoToHdfs {
         .option("collection", tableName)
         .format("com.mongodb.spark.sql")
         .load()
+//          .rdd
+//        .map(row=>tableName+"|"+row)
 //        .mapPartitions(iter=>{
 //          val array = ArrayBuffer[String]()
 //          for (row <- iter) {
@@ -66,6 +70,11 @@ object LoadDataFromMongoToHdfs {
 
 //      mongoDF.foreach(ent=>println(ent.entName))
       mongoDF.show(truncate = false)
+      println("开始写数据...")
+//      mongoDF.groupBy()
+//      mongoDF.saveAsTextFile("hdfs://foo-1:9000/newData")
+      mongoDF.write.mode("overwrite").format("json").save("hdfs://foo-1:9000/newData")
+      println("写入hdfs完毕！")
 
 
     }

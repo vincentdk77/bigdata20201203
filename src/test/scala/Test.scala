@@ -1,4 +1,7 @@
 import com.alibaba.fastjson.{JSON, JSONObject}
+import org.apache.spark.SparkConf
+import org.apache.spark.rdd.RDD
+import org.apache.spark.sql.{DataFrame, RelationalGroupedDataset, SparkSession}
 
 object Test {
   def main(args: Array[String]): Unit = {
@@ -14,6 +17,28 @@ object Test {
       }
     }
 
+    val sparkConf = new SparkConf().setMaster("local").setAppName("StatisticsRecommeder")
+    val spark = SparkSession.builder().config(sparkConf).getOrCreate()
+    val sc = spark.sparkContext
+
+    import spark.implicits._
+
+    val rdd: RDD[(Int, String)] = sc.makeRDD(Array((1,"jack"),(2,"tom"),(1,"mike")))
+
+    val rddJoin: RDD[(Int, (String, String))] = rdd.join(rdd)
+
+    rdd.join(rdd,2)
+
+    val rdd1: RDD[(Int, String)] = sc.makeRDD(Array((1,"jack"),(2,"tom"),(1,"mike")))
+
+    val groupRdd: RDD[(Int, Iterable[(Int, String)])] = rdd1.groupBy(_._1)
+
+    val DF: DataFrame = rdd1.toDF("id","name")
+    val dataset: RelationalGroupedDataset = DF.groupBy("id")
+    dataset
+
   }
 
 }
+
+case class People(id:Integer,name:String)
