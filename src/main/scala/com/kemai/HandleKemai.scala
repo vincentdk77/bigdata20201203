@@ -85,9 +85,8 @@ object HandleKemai {
 //		)
 //		val inputRDD: RDD[String] = sc.textFile(fileList.mkString(","))
 		val path_prefix = "D:\\JavaRelation\\工作\\安徽创瑞\\mongoDatas\\transform\\"
-		val fileList = Array(path_prefix + "ent\\*",path_prefix + "ent_top500\\*")
+		val fileList = Array(path_prefix + "ent_top500\\*")
 		val path = fileList.mkString(",")
-		println(path)
 		val inputRDD: RDD[String] = sc.textFile(path)
 //		val inputRDD: RDD[String] = sc.textFile("D:\\JavaRelation\\工作\\安徽创瑞\\mongoDatas\\transform\\ent\\2020-11-21\\*")
 //		inputRDD.collect().foreach(println(_))
@@ -148,7 +147,7 @@ object HandleKemai {
 			.filter(t => !StringUtils.isEmpty(t._1))
 			.filter(t => !(t._2.getString("tableName").equals("ent_invest_company") && StringUtils.isEmpty(t._2.getString("isBrunch"))))
 
-//		tupleRDD.collect().foreach(println(_))
+		tupleRDD.collect().foreach(println(_))
 //		(5f2bbf61479818904158dbe3,{"regNo":"350122100124694","estDate":"2020-03-23","opScope":"互联网零售；农业园艺服务；花卉种植；陶瓷、石材装饰材料零售；纺织品及针织品零售；服装零售；鞋帽零售；化妆品及卫生用品零售；钟表、眼镜零售；箱包零售；厨具卫具零售；日用杂品零售；自行车等代步设备零售；文具用品零售；体育用品及器材零售（不含弩）；户外装备零售；珠宝首饰零售；工艺美术品及收藏品零售（象牙及其制品除外）；乐器零售；玩具专门零售；日用家电零售；其他电子产品零售；五金零售；灯具零售；通信设备（不含无线发射装置及卫星地面接收设施）零售。（依法须经批准的项目，经相关部门批准后方可开展经营活动）","dom":"福建省福州市连江县凤城镇马祖东路3号碧水龙城7号楼1305单元","entName":"连江县陌上贸易有限公司","hidden":"0","regCaption":"100.0","source":"企信通","tableName":"ent","uniscId":"91350122MA33N5WU3D","legalName":"郑青霞","sourceUrl":"https://www.qixintong.cn/company/6273355659696b474c4d65","createdAt":"2020-08-06 16:29:21","regCap":"壹佰万元整","taxNo":"91350122MA33N5WU3D","entId":"5f2bbf61479818904158dbe3","regCapCurCN":"人民币","regProv":"福建省","apprDate":"2020-03-23","corpStatusString":"存续（在营、开业、在册）","regDistrict":"连江县","q":"91","checkedAt":"2020-09-28 15:54:01","regCity":"福州市","entTypeCN":"有限责任公司（自然人投资或控股）","_id":"{\"$oid\":\"5f2bbf61479818904158dbe3\"}","spider":"qixintong","desc":"连江县陌上贸易有限公司成立于2020年3月23日，法定代表人为郑青霞，注册资本为100.0万元,统一社会信用代码为91350122MA33N5WU3D，企业地址位于福建省福州市连江县凤城镇马祖东路3号碧水龙城7号楼1305单元，经营范围包括：互联网零售；农业园艺服务；花卉种植；陶瓷、石材装饰材料零售；纺织品及针织品零售；服装零售；鞋帽零售；化妆品及卫生用品零售；钟表、眼镜零售；箱包零售；厨具卫具零售；日用杂品零售；自行车等代步设备零售；文具用品零售；体育用品及器材零售（不含弩）；户外装备零售；珠宝首饰零售；工艺美术品及收藏品零售（象牙及其制品除外）；乐器零售；玩具专门零售；日用家电零售；其他电子产品零售；五金零售；灯具零售；通信设备（不含无线发射装置及卫星地面接收设施）零售。（依法须经批准的项目，经相关部门批准后方可开展经营活动）。连江县陌上贸易有限公司目前的经营状态为存续（在营、开业、在册）。"})
 
 //		{
@@ -265,49 +264,49 @@ object HandleKemai {
 		/**
 		 * 第三步：数据清洗
 		 */
-		val mongoRDD: RDD[JSONObject] = jsonRDD
-			.map(MangoHandle.merge)
-			.map(MangoHandle.customCategory(_, bc_categoryList.value))
-			.map(MangoHandle.products)
-			.map(MangoHandle.corpStatusString)
-			.map(MangoHandle.agentType)
-			.map(MangoHandle.check)
-			.map(MangoHandle.setMangoId)
-			.persist(StorageLevel.MEMORY_AND_DISK)
+//		val mongoRDD: RDD[JSONObject] = jsonRDD
+//			.map(MangoHandle.merge)
+//			.map(MangoHandle.customCategory(_, bc_categoryList.value))
+//			.map(MangoHandle.products)
+//			.map(MangoHandle.corpStatusString)
+//			.map(MangoHandle.agentType)
+//			.map(MangoHandle.check)
+//			.map(MangoHandle.setMangoId)
+//			.persist(StorageLevel.MEMORY_AND_DISK)
 
-		val esRDD: RDD[JSONObject] = jsonRDD.map(EsHandle.transforToEs)
-
-		// 往es写数据
-		esRDD.map(json => {
-			for (key <- json.keySet()) {
-				if ("ent".equals(key) ||
-					"ent_a_taxpayer".equals(key) ||
-					"ent_abnormal_opt".equals(key) ||
-					"ent_apps".equals(key) ||
-					"ent_bids".equals(key) ||
-					"ent_brand".equals(key) ||
-					"ent_cert".equals(key) ||
-					"ent_contacts".equals(key) ||
-					"ent_copyrights".equals(key) ||
-					"ent_court_notice".equals(key) ||
-					"ent_ecommerce".equals(key) ||
-					"ent_funding_event".equals(key) ||
-					"ent_goods".equals(key) ||
-					"ent_licence".equals(key) ||
-					"ent_new_media".equals(key) ||
-					"ent_news".equals(key) ||
-					"ent_patent".equals(key) ||
-					"ent_punishment".equals(key) ||
-					"ent_recruit".equals(key) ||
-					"ent_software".equals(key) ||
-					"ent_trademark".equals(key) ||
-					"ent_website".equals(key)
-				) {
-					ElasticSearchUtil.postBatchByArray(key, json.getJSONArray(key))
-					//					ElasticSearchUtil.postBatchByArray("prod_" + key, json.getJSONArray(key))
-				}
-			}
-		}).count()
+//		val esRDD: RDD[JSONObject] = jsonRDD.map(EsHandle.transforToEs)
+//
+//		// 往es写数据
+//		esRDD.map(json => {
+//			for (key <- json.keySet()) {
+//				if ("ent".equals(key) ||
+//					"ent_a_taxpayer".equals(key) ||
+//					"ent_abnormal_opt".equals(key) ||
+//					"ent_apps".equals(key) ||
+//					"ent_bids".equals(key) ||
+//					"ent_brand".equals(key) ||
+//					"ent_cert".equals(key) ||
+//					"ent_contacts".equals(key) ||
+//					"ent_copyrights".equals(key) ||
+//					"ent_court_notice".equals(key) ||
+//					"ent_ecommerce".equals(key) ||
+//					"ent_funding_event".equals(key) ||
+//					"ent_goods".equals(key) ||
+//					"ent_licence".equals(key) ||
+//					"ent_new_media".equals(key) ||
+//					"ent_news".equals(key) ||
+//					"ent_patent".equals(key) ||
+//					"ent_punishment".equals(key) ||
+//					"ent_recruit".equals(key) ||
+//					"ent_software".equals(key) ||
+//					"ent_trademark".equals(key) ||
+//					"ent_website".equals(key)
+//				) {
+//					ElasticSearchUtil.postBatchByArray(key, json.getJSONArray(key))
+//					//					ElasticSearchUtil.postBatchByArray("prod_" + key, json.getJSONArray(key))
+//				}
+//			}
+//		}).count()
 
 		// 父子文档
 		//        if (executeCode.charAt(1) == '1') {

@@ -11,12 +11,14 @@ object LoadDataFromMongoToHdfs {
     System.setProperty("HADOOP_USER_NAME","root")
     val spark = SparkSession.builder()
       .master("local[*]")
+      .config("spark.default.parallelism","16")
+      .config("spark.sql.shuffle.partitions","16")
       .appName("LoadDataFromMongoToHdfs")
       .getOrCreate()
     val sc = spark.sparkContext
 
     val collections = Array(
-      "ent" // ES索引，统计字段
+//      "ent", // ES索引，统计字段
 //      "ent_a_taxpayer", // ES索引，统计字段
 //      "ent_abnormal_opt", // ES索引
 //      "ent_annual_report", // 统计字段
@@ -45,12 +47,16 @@ object LoadDataFromMongoToHdfs {
 //      "ent_trademark", // ES索引，统计字段
 //      "ent_website", // ES索引，统计字段
 //      "ent_maimai", //
+      "ent_top500" //
 //      "ent_zhaodao" //
     )
     import spark.implicits._
     for (tableName <- collections) {
       val mongoDF = spark.read
         .option("uri", "mongodb://foo-1:27017/ent")
+//        .option("uri", "mongodb://192.168.0.81:28018/ent")
+//        .option("user", "spiderman")
+//        .option("password", "spider\\$2581\\#")
         .option("collection", tableName)
         .format("com.mongodb.spark.sql")
         .load()
